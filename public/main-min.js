@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".fakeTable").tablesorter({sortList:[[2,1]]})});

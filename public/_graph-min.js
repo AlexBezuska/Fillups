@@ -1,0 +1,3 @@
+// create graph
+//===========================================================================
+createMPGGraph=function(){$(".graph-area").empty();$(".graph-area").append('<div class="graph"></div><div class="graphNum"></div>');$("td.mpg").each(function(){var e=0,t=parseFloat($(this).text());console.log("building graph, adding: "+t);e=t+"px";$(".graph").prepend('<div class="graphBar" data-mpg="'+t+'" style=" height:'+e+';"></div>')});$(".graphBar").mouseover(function(){var e=$(this).data("mpg");$(".graphNum").empty().append(e+"<br>mpg")});$(".graphBar").mouseleave(function(){$(".graphNum").empty()})};

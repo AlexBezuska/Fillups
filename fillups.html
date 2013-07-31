@@ -1,0 +1,129 @@
+<head>
+  <title>Fillups - Alpha</title>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+	<script src='/_editFillup-min.js'></script>
+	<script src='/_graph-min.js'></script>
+	<script src='/easyValPro-min.js'></script>
+	<script src='/_addFillup-min.js'></script>
+	<script src='/jquery.tablesorter.min.js'></script>
+</head>
+
+<body>
+	<div class='topBar'>
+		<div class='col1-4'>
+		<h1 class='fl'>Fillups</h1>
+		</div><!-- end col1-3-->
+		<div class='col1-2 graph-area'>
+		</div><!-- end col1-3-->
+		<div class='col1-4'>
+		<div class='btn user'>{{loginButtons}}
+			{{#if currentSuer}}
+			{{currentUser.profile.login}}
+			{{/if}}
+		</div>
+		</div><!-- end col1-3-->
+	</div><!-- end topBar  -->
+
+
+<header>
+	<div class='col1-5 btns'>
+						<p class='formOpener btn'>Add a new Fillup</p>
+						<p class='statsOpener btn' style='display: none;'>View Your Stats</p>
+	</div><!-- end grid 1-4 -->
+
+
+
+		<div class='stats col3-5'>
+			<div class='col1-5 fillcount   '><span class='log'>XOXO</span><em>Fillups Logged      </em></div>
+			<div class='col1-5 avgMpg      '><span class='log'>XOXO</span><em>Avg MPG             </em></div>
+			<div class='col1-5 avgGalCost  '><span class='log'>XOXO</span><em>Avg Per Gallon cost </em></div>
+			<div class='col1-5 galPurchased'><span class='log'>XOXO</span><em>Gallons Purchased   </em></div>
+			<div class='col1-5 totalCost   '><span class='log'>XOXO</span><em>Total Spent         </em></div>
+		</div><!-- end stats module -->
+
+		<div class='form col3-5' style='display: none;'>
+			<div class='col1-5'><input type='text' class='txtDate'                        /><em> Date:   </em></div>
+			<div class='col1-5'><input type='text' class='txtTrip'    data-mask='decimal' /><em> Trip:   </em></div>
+			<div class='col1-5'><input type='text' class='txtGal'     data-mask='decimal' /><em> Gallons:</em></div>
+			<div class='col1-5'><input type='text' class='txtPrice'   data-mask='decimal' /><em> Cost:   </em></div>
+			<div class='col1-5'><input type='text' class='txtStation'                     /><em> Station:</em></div>
+
+
+
+					<input type='text' class='txtMPG hide'  value='XOXO' />
+					<input type='text' class='txtPPG hide'  value='XOXO' />
+					<input type='text' class='txtPPM hide'  value='XOXO' />
+		</div><!-- end form -->
+
+		<div class='col1-5'>
+				 <div class='send'>+</div>
+	</div><!-- end grid 1-4 -->
+
+</header>
+
+
+	<div class='grid'>
+		<div class='col1-1'>
+		<h2> Your Fillups:</h2>
+<input type='text' class='editFlag hide' value='true'/>
+<table class='tablesorter fakeTable'>
+
+<thead>
+	<tr class='head row'>
+		<th class='hide'>unique id</th>
+		<th class='dateResult'>Date</th>
+		<th class='mpg'>MPG </th>
+		<th class='tripResult'>Trip</th>
+		<th class='ppg'>Price/Gal</th>
+		<th class='ppm'>Price/Mile</th>
+		<th class='galResult'>Gallons</th>
+		<th class='priceResult'>Total</th>
+		<th class='stationResult'>Station</th>
+		<th><!-- btns  --></th>
+	</tr>
+</thead>
+
+<tbody>
+  {{> Fillup}}
+ </tbody>
+</table>
+
+
+   </div><!-- end col1-1 -->
+
+   <footer class='col1-1'>
+		<p>Thanks for using</p>
+		<h1>Fillups</h1>
+
+   </footer><!-- end col1-1 -->
+
+
+   </div><!-- end grid -->
+</body>
+
+
+<template name='Fillup'>
+   {{#each FillupArr}}
+		<tr class='fillup row'>
+
+			<td class='hide uniqueID'>{{_id}}</td>
+			<td class='dateResult'>{{Date}}</td>
+			<td class='mpg'>{{MPG}}</td>
+			<td class='tripResult'>{{Trip}}</td>
+			<td class='ppg'>{{PPG}}</td>
+			<td class='ppm'>{{PPM}}</td>
+			<td class='galResult'>{{Gal}}</td>
+			<td class='priceResult'>{{Price}}</td>
+			<td class='stationResult'>{{Station}}</td>
+			<td>
+					<div class='btnAction btnEdit'>V</div>
+					<div class='btnAction btnSave' style='display:none;' >%</div>
+					<div class='btnAction btnRemove'>I</div>
+					<div class='btnAction btnCancel' style='display:none;'>x</div>
+			</td>
+		</tr>
+   {{/each}}
+</template>
+
+
+
