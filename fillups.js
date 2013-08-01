@@ -5,6 +5,15 @@ Fillup = new Meteor.Collection("Fillup");
 
 if (Meteor.isClient) {
 
+currentUser = Meteor.user();
+currentUserId = Meteor.userId();
+currentUserEmail = Meteor.user().emails[0].address;
+
+console.log('You are logged in as: ', currentUserEmail, ', with the ID:', currentUserId, 'bro.');
+
+
+
+
 // Template.Fillup.FillupArr  fn
 //displays the records from this collection on the page
 //###########################################################################
@@ -109,7 +118,7 @@ console.log("clicked save for row id: " + id);
 
 
 
-
+ $('.topBar').append('You are logged in as: ', currentUserEmail, ', with the ID:', currentUserId, 'bro.');
 
 
 
@@ -123,6 +132,7 @@ console.log("clicked save for row id: " + id);
 // Template.Fillup.rendered fn // this seems to loop constantly
 //###########################################################################
  Template.Fillup.rendered = function() {
+
 
 createMPGGraph();
 

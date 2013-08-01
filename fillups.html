@@ -17,14 +17,14 @@
 		</div><!-- end col1-3-->
 		<div class='col1-4'>
 		<div class='btn user'>{{loginButtons}}
-			{{#if currentSuer}}
+			{{#if currentUser}}
 			{{currentUser.profile.login}}
 			{{/if}}
 		</div>
 		</div><!-- end col1-3-->
 	</div><!-- end topBar  -->
 
-
+{{#if currentUser}}
 <header>
 	<div class='col1-5 btns'>
 						<p class='formOpener btn'>Add a new Fillup</p>
@@ -39,7 +39,7 @@
 			<div class='col1-5 avgGalCost  '><span class='log'>XOXO</span><em>Avg Per Gallon cost </em></div>
 			<div class='col1-5 galPurchased'><span class='log'>XOXO</span><em>Gallons Purchased   </em></div>
 			<div class='col1-5 totalCost   '><span class='log'>XOXO</span><em>Total Spent         </em></div>
-		</div><!-- end stats module -->
+	</div><!-- end stats module -->
 
 		<div class='form col3-5' style='display: none;'>
 			<div class='col1-5'><input type='text' class='txtDate'                        /><em> Date:   </em></div>
@@ -90,6 +90,9 @@
 
 
    </div><!-- end col1-1 -->
+
+
+{{/if}}
 
    <footer class='col1-1'>
 		<p>Thanks for using</p>
