@@ -18,7 +18,7 @@ console.log('You are logged in as: ', currentUserEmail, ', with the ID:', curren
 //displays the records from this collection on the page
 //###########################################################################
   Template.Fillup.FillupArr = function(){
-      return Fillup.find({}, {sort: {Date: -1}});
+      return Fillup.find({ userID: {$gt: 0} }, {sort: {_id: -1}});
   };// end Template.Fillup.FillupArr
 //###########################################################################
 // end display collection
@@ -118,7 +118,7 @@ console.log("clicked save for row id: " + id);
 
 
 
- $('.topBar').append('You are logged in as: ', currentUserEmail, ', with the ID:', currentUserId, 'bro.');
+ //$('.topBar').append('You are logged in as: ', currentUserEmail, ', with the ID:', currentUserId, 'bro.');
 
 
 

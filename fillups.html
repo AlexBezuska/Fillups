@@ -70,6 +70,8 @@
 
 <thead>
 	<tr class='head row'>
+		<th class='hide'>user Email</th>
+		<th class='hide'>user Id</th>
 		<th class='hide'>unique id</th>
 		<th class='dateResult'>Date</th>
 		<th class='mpg'>MPG </th>
@@ -109,15 +111,17 @@
    {{#each FillupArr}}
 		<tr class='fillup row'>
 
+			<td class='hide'>{{userEmail}}</td>
+			<td class='hide'>{{userId}}</td>
 			<td class='hide uniqueID'>{{_id}}</td>
-			<td class='dateResult'>{{Date}}</td>
-			<td class='mpg'>{{MPG}}</td>
-			<td class='tripResult'>{{Trip}}</td>
-			<td class='ppg'>{{PPG}}</td>
-			<td class='ppm'>{{PPM}}</td>
-			<td class='galResult'>{{Gal}}</td>
-			<td class='priceResult'>{{Price}}</td>
-			<td class='stationResult'>{{Station}}</td>
+			<td class='dateResult'>{{fillups.Date}}</td>
+			<td class='mpg'>{{fillups.MPG}}</td>
+			<td class='tripResult'>{{fillups.Trip}}</td>
+			<td class='ppg'>{{fillups.PPG}}</td>
+			<td class='ppm'>{{fillups.PPM}}</td>
+			<td class='galResult'>{{fillups.Gal}}</td>
+			<td class='priceResult'>{{fillups.Price}}</td>
+			<td class='stationResult'>{{fillups.Station}}</td>
 			<td>
 					<div class='btnAction btnEdit'>V</div>
 					<div class='btnAction btnSave' style='display:none;' >%</div>

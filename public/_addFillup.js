@@ -66,7 +66,7 @@ setToToday(".txtDate", "mm/dd/yyyy");
                 $('.txtStation') .val('');
 
                 // MongoDB insert statement
-                  Fillup.insert({
+                /*  Fillup.insert({
                     Date    : DateVal,     //user
                     MPG     : MPGVal,      //dynamic
                     Trip    : TripVal,     //user
@@ -75,7 +75,23 @@ setToToday(".txtDate", "mm/dd/yyyy");
                     Gal     : GalVal,      //user
                     Price   : PriceVal,    //user
                     Station : StationVal   //user
-                  });
+                  });*/
+
+                  Fillup.insert({
+                                "userID": Meteor.userId(),
+                                "userEmail": currentUserEmail,
+
+                                "fillups": {
+                                    Date    : DateVal,     //user
+                                    MPG     : MPGVal,      //dynamic
+                                    Trip    : TripVal,     //user
+                                    PPG     : PPGVal,      //dynamic
+                                    PPM     : PPMVal,      //dynamic
+                                    Gal     : GalVal,      //user
+                                    Price   : PriceVal,    //user
+                                    Station : StationVal   //user
+                                    }
+                          });
 
               }); // end send button click fn
 
