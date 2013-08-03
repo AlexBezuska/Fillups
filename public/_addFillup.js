@@ -9,8 +9,6 @@ $(document).ready(function() {
 
 
 
-setToToday(".txtDate", "mm/dd/yyyy");
-
 
 
 
@@ -19,6 +17,7 @@ setToToday(".txtDate", "mm/dd/yyyy");
 // buttons to switch between stats and form
   //==========================================================================
       $('.statsOpener').click(function(){
+
         //alert('clicked statsOpener btn');
         $('.formOpener').show();
         $('.statsOpener').hide();
@@ -27,6 +26,7 @@ setToToday(".txtDate", "mm/dd/yyyy");
       });
 
       $('.formOpener').click(function(){
+         setToToday('.txtDate', 'mm/dd/yyyy');
           //alert('clicked formOpener btn');
           $('.formOpener').hide();
           $('.statsOpener').show();
@@ -91,7 +91,7 @@ setToToday(".txtDate", "mm/dd/yyyy");
                                     Price   : PriceVal,    //user
                                     Station : StationVal   //user
                                     }
-                          });
+                    });//end insert fn
 
               }); // end send button click fn
 

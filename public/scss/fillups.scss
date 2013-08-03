@@ -1,0 +1,564 @@
+
+
+@import url(http://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+
+@import"_colors";
+
+@font-face {
+  font-family: 'ModernPictogramsNormal';
+  src: url("http://cdn.alexbezuska.com/font/ModernPictogramsNormal/modernpics-webfont.eot");
+  src: url("http://cdn.alexbezuska.com/font//ModernPictogramsNormalmodernpics-webfont.eot?#iefix") format("embedded-opentype"), url("http://cdn.alexbezuska.com/font/ModernPictogramsNormal/modernpics-webfont.woff") format("woff"), url("http://cdn.alexbezuska.com/font/ModernPictogramsNormal/modernpics-webfont.ttf") format("truetype"), url("http://cdn.alexbezuska.com/font/ModernPictogramsNormal/modernpics-webfont.svg#ModernPictogramsNormal") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hide{
+  display:none !important;
+}
+html, body {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0px !important;
+  background: $fillups-green;
+  margin: 0px !important;
+  color: white;
+  font-family: sans-serif !important;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 100%;
+  &:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
+}
+
+
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 650px)  { @content; }
+  }
+}
+
+[class*='col'] {
+  display: inline-block;
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  //border: 1px dashed red;
+}
+
+.col1-1 {
+  width: 100%;
+}
+
+.col1-2 {
+  width: 50%;
+  @include breakpoint(papa-bear) { width: 50%; }
+  @include breakpoint(mama-bear) { width: 50%; }
+  @include breakpoint(baby-bear) { width: 100%; }
+}
+
+.col1-3 {
+  width: 33.33333333%;
+  @include breakpoint(papa-bear) { width: 33.33333333%; }
+  @include breakpoint(mama-bear) { width: 100%; }
+  @include breakpoint(baby-bear) { width: 100%; }
+
+}
+.col3-5{
+  width: 60%;
+}
+.col2-3 {
+  width: 66.66666666%;
+}
+
+.col1-4 {
+  width: 25%;
+  @include breakpoint(papa-bear) { width: 25%;  }
+  @include breakpoint(mama-bear) { width: 25%;  }
+  @include breakpoint(baby-bear) { width: 100%; }
+}
+
+.col3-4 {
+  width: 75%;
+  @include breakpoint(papa-bear) { width: 75%;  }
+  @include breakpoint(mama-bear) { width: 75%;  }
+  @include breakpoint(baby-bear) { width: 100%; }
+}
+
+
+
+.col1-5 {
+  width: 20%;
+  //@include breakpoint(papa-bear) { width: 75%;  }
+  @include breakpoint(mama-bear) { width: 100%;  }
+  @include breakpoint(baby-bear) { width: 100%; }
+}
+.col4-5 {
+  width: 80%;
+  //@include breakpoint(papa-bear) { width:   }
+  @include breakpoint(mama-bear) { width: 100%;  }
+  @include breakpoint(baby-bear) { width: 100%; }
+}
+
+.col1-6 {
+  width: 16.6666666666666666%;
+  //@include breakpoint(papa-bear) { width: 75%; }
+  @include breakpoint(mama-bear) { width: 33.333333333333333333%; }
+  @include breakpoint(baby-bear) { width: 100%; }
+}
+
+.showMe {
+  border: 1px solid red;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+h1 {//logo
+  font-size: 2.2rem;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: 100;
+  margin: 10px;
+  padding: 0 0 0 36px;
+  position: relative;
+  display: inline-block;
+  &:before {
+    content: "";
+    background: url("/icon.png");
+    background-size: 32px, 32px;
+    height: 32px;
+    width: 32px;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+  }
+}
+
+h2 {
+  font-weight: 100;
+  margin-left: 20px;
+}
+
+.topBar {
+  width: 100%;
+  height: auto;
+  padding: 0 15px;
+  position: relative;
+  &:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
+  .btn {
+    vertical-align: top;
+    position: relative;
+    float: right;
+    color: #60b99a;
+    margin: 0 5px;
+    background-color: #fff;
+    padding: 8px 12px;
+  }
+}
+
+.stats{
+  em{
+    position:relative;
+    text-align: center;
+    background-color: darken($fillups-green, 10%);
+    margin: 0 auto;
+    padding: .4rem;
+    display: block;
+    font-weight: 100 !important;
+  }
+  span{
+    font-size: 1.4rem;
+    letter-spacing: .15rem;
+    font-weight: 100 !important;
+    font-family: "helvetica neue", sans-serif;
+    background-color: darken($fillups-green, 2%);
+     position:relative;
+    text-align: center;
+    margin: 0 auto;
+    padding: .4rem;
+      display: block;
+  }
+}//stats
+
+.form{
+  em{
+    position:relative;
+    text-align: center;
+    background-color: darken($fillups-green, 10%);
+    margin: 0 auto;
+    padding: .4rem;
+    display: block;
+    font-weight: 100 !important;
+  }
+  input{
+    text-align: right;
+  width: 100%;
+  position:relative;
+  font-weight: 200 !important;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  color: $asbestos;
+  margin: 0px !important;
+  padding: .4rem;
+  display: block;
+  @include breakpoint(baby-bear) { text-align: center; }
+  }
+  .send{
+    @include breakpoint(baby-bear) { float: right; }
+  }
+}//stats
+
+
+.graph-area{
+  text-align: center;
+
+}
+
+.graph {
+  max-width: 335px !important;
+  display: inline-block;
+  overflow: hidden;
+  padding-top: 14px;
+  height: 65px !important;
+  background-color: darken($fillups-green, 8%);
+  vertical-align: top;
+  position: relative;
+  &:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
+
+}
+.graphNum{
+  font-family: "helvetica neue" sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: 80%;
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  padding-top: 16px;
+  background-color: darken($fillups-green, 10%);
+  }
+
+.graphBar {
+  &:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
+  position: relative;
+  background: white;
+  margin: 2px;
+  bottom: 0px;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 5px;
+  content: "";
+  &:hover {
+    background-color: #3c8f72 !important;
+  }
+}
+
+.hoverMPG {
+  z-index: 9000;
+  position: absolute;
+  display: none;
+  background: white;
+  padding: 10px;
+  bottom: -70px;
+  left: 70px;
+  font-size: 1.1rem;
+  border: 1px solid #3c8f72;
+  color: #3c8f72;
+}
+
+header {
+  width: 100%;
+  border-top: 1px solid darken( $fillups-green,10%);
+  border-bottom: 1px solid darken( $fillups-green,10%);
+  background-color: lighten( $fillups-green,10%);
+  padding: 4px 15px 10px 15px;
+  margin: 0 auto 15px auto;
+  position: relative;
+  &:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
+
+  .btns{
+    text-align: center;
+    padding: 15px 0;
+  }
+  .col1-5{
+    padding-top: 10px;
+  }
+}
+
+.btn {
+  top: 2px;
+  position: relative;
+  margin: 10px;
+  color: #60b99a;
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 6px 12px;
+  display: inline-block;
+}
+
+.stats {
+  display: inline-block;
+  p {
+    position: relative;
+    top: 3px;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 0 25px;
+  }
+}
+
+.form {
+  display: inline-block;
+}
+
+.formOpener:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+input[type='text'] {
+  margin: 0 10px 0 10px;
+  height: 32px;
+  padding: 5px;
+  outline: none;
+  border: 0px !important;
+}
+
+.fakeTable {
+  border-collapse:collapse;
+  td, th, tr, thead, tbody{border: 0px !important; }
+  font-size: .9rem;
+  min-width: 1080px;
+  margin: 10px auto 50px auto;
+  border: 1px solid #3c8f72 !important;
+
+    .updateBox {
+      text-align: right;
+    margin: 0px;
+
+
+
+    padding: 5px;
+    outline: none;
+    border: 0px !important;
+    }
+    .stationResult .updateBox {
+      text-align: left;
+    margin: 0px;
+    height: 32px;
+
+    padding: 5px;
+    outline: none;
+    border: 0px !important;
+    }
+}
+tr.head{
+ background-color: darken($fillups-green, 12%) !important;
+ th{ padding: 10px!important;}
+}
+td{
+  padding: 2px 10px;
+  border: 0px !important;
+
+}
+
+
+
+tr {
+  padding: 5px;
+  &:nth-child(odd) {
+    background-color: darken($fillups-green, 5%);
+    &:hover {
+     background-color: darken($fillups-green, 12%);
+    }
+  }
+  &:hover {
+    background-color: darken($fillups-green, 10%);
+  }
+}
+
+.btnAction{
+cursor: pointer;
+  content: "V";
+  display:inline-block;
+   font-size: 24px;
+   color: white;
+   text-align: center;
+   padding: 2px;
+  font-family: 'ModernPictogramsNormal';
+  position: relative;
+  height: 30px;
+  width: 30px;
+  -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+     -o-border-radius: 30px;
+        border-radius: 30px;
+margin: 2px 5px;
+  z-index: 9000;
+
+  &:hover{
+    color: $fillups-green;
+    background-color: white;
+  }
+}
+
+.dateResult, .mpg, .tripResult, .ppg, .ppm, .galResult, .priceResult {
+  text-align: right;
+}
+
+.stationResult {
+  padding-left: 20px;
+}
+
+
+.toHide {
+  opacity: .5;
+}
+
+.send {
+  top: 2px;
+  position: relative;
+  margin: 10px;
+  color: #60b99a;
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 6px 12px;
+  display: inline-block;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.todolist {
+  vertical-align: top;
+  position: relative;
+  float: right;
+  color: grey;
+  margin: 0 5px;
+  background-color: #fff;
+  padding: 8px 12px;
+}
+
+.done {
+  color: #60b99a;
+}
+
+.user {
+  vertical-align: top;
+  position: relative;
+  float: right;
+  color: #60b99a;
+  margin: 0 5px;
+  background-color: #fff;
+  padding: 8px 12px;
+}
+
+footer {
+  background-color: rgba(60, 143, 114, 0.9);
+  text-align: center;
+  padding: 0 0 20px 0;
+}
+
+th {
+  &.headerSortUp {
+    background-color: rgba(60, 143, 114, 0.8);
+    &:after {
+      content: '/';
+      position: absolute;
+      width: 20px;
+      text-align: center;
+      font-family: 'ModernPictogramsNormal';
+      color: white;
+    }
+  }
+  &.headerSortDown {
+    background-color: rgba(60, 143, 114, 0.8);
+    &:after {
+      content: '-';
+      position: absolute;
+      width: 20px;
+      text-align: center;
+      font-family: 'ModernPictogramsNormal';
+      color: white;
+    }
+  }
+  &.header {
+    cursor: pointer;
+    padding-right: 20px;
+  }
+}
+
+//into area
+
+.intro-msg{
+width: 55%;
+border: 1px dashed white;
+padding: 15px;
+margin: 0 auto;
+position: relative;
+
+  text-align: left;
+  span{
+    padding-top: 10px;
+    position: relative;
+    float: right;
+  }
+&:after{
+   clear: both;
+ display: table;
+ content:"";
+}
+}
+
+
+
+#login-dropdown-list {
+
+left: -100px !important;
+}
+
+
+
+
+
+

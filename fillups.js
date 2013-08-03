@@ -5,11 +5,13 @@ Fillup = new Meteor.Collection("Fillup");
 
 if (Meteor.isClient) {
 
-currentUser = Meteor.user();
-currentUserId = Meteor.userId();
-currentUserEmail = Meteor.user().emails[0].address;
 
-console.log('You are logged in as: ', currentUserEmail, ', with the ID:', currentUserId, 'bro.');
+
+ currentUser = Meteor.user();
+  currentUserId = Meteor.userId();
+  currentUserEmail = Meteor.user().emails[0].address;
+  console.log(currentUser + 'You are logged in as: ', currentUserEmail, ', with the ID:', currentUserId, 'bro.');
+
 
 
 
@@ -18,7 +20,7 @@ console.log('You are logged in as: ', currentUserEmail, ', with the ID:', curren
 //displays the records from this collection on the page
 //###########################################################################
   Template.Fillup.FillupArr = function(){
-      return Fillup.find({ userID: {$gt: 0} }, {sort: {_id: -1}});
+      return Fillup.find({ userID: currentUserId }, {sort: {_id: -1}});
   };// end Template.Fillup.FillupArr
 //###########################################################################
 // end display collection
@@ -82,16 +84,22 @@ var r=confirm("Are you sure you want to commit these changes?\nCaution: There is
 console.log("clicked save for row id: " + id);
           Fillup.update({ "_id": id},
                                {
-                                $set: { "Date"    : DateVal,     //user
-                                        "MPG"     : MPGVal,      //dynamic
-                                        "Trip"    : TripVal,     //user
-                                        "PPG"     : PPGVal,      //dynamic
-                                        "PPM"     : PPMVal,      //dynamic
-                                        "Gal"     : GalVal,      //user
-                                        "Price"   : PriceVal,    //user
-                                        "Station" : StationVal   //user
+                                $set: {
+                                "fillups": {
+                                    Date    : DateVal,     //user
+                                    MPG     : MPGVal,      //dynamic
+                                    Trip    : TripVal,     //user
+                                    PPG     : PPGVal,      //dynamic
+                                    PPM     : PPMVal,      //dynamic
+                                    Gal     : GalVal,      //user
+                                    Price   : PriceVal,    //user
+                                    Station : StationVal   //user
+                                    }
                                       }
                                });
+
+
+
 
 
         }
@@ -132,6 +140,9 @@ console.log("clicked save for row id: " + id);
 // Template.Fillup.rendered fn // this seems to loop constantly
 //###########################################################################
  Template.Fillup.rendered = function() {
+ currentUser = Meteor.user();
+  currentUserId = Meteor.userId();
+  currentUserEmail = Meteor.user().emails[0].address;
 
 
 createMPGGraph();

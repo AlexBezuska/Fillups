@@ -1,9 +1,10 @@
 <head>
   <title>Fillups - Alpha</title>
-  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-	<script src='/_editFillup-min.js'></script>
-	<script src='/_graph-min.js'></script>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 	<script src='/easyValPro-min.js'></script>
+	<script src='/_editFillup-min.js'></script>
+	<script src='/main-min.js'></script>
+	<script src='/_graph-min.js'></script>
 	<script src='/_addFillup-min.js'></script>
 	<script src='/jquery.tablesorter.min.js'></script>
 </head>
@@ -42,11 +43,11 @@
 	</div><!-- end stats module -->
 
 		<div class='form col3-5' style='display: none;'>
-			<div class='col1-5'><input type='text' class='txtDate'                        /><em> Date:   </em></div>
-			<div class='col1-5'><input type='text' class='txtTrip'    data-mask='decimal' /><em> Trip:   </em></div>
-			<div class='col1-5'><input type='text' class='txtGal'     data-mask='decimal' /><em> Gallons:</em></div>
-			<div class='col1-5'><input type='text' class='txtPrice'   data-mask='decimal' /><em> Cost:   </em></div>
-			<div class='col1-5'><input type='text' class='txtStation'                     /><em> Station:</em></div>
+			<div class='col1-5'><input type='text' class='txtDate'                        /><em> Fillup Date   </em></div>
+			<div class='col1-5'><input type='text' class='txtTrip'    data-mask='decimal' /><em> Trip Milage </em></div>
+			<div class='col1-5'><input type='text' class='txtGal'     data-mask='decimal' /><em> Gallons Purchased</em></div>
+			<div class='col1-5'><input type='text' class='txtPrice'   data-mask='decimal' /><em> Fillup Cost  </em></div>
+			<div class='col1-5'><input type='text' class='txtStation'                     /><em> Station Name</em></div>
 
 
 
@@ -70,7 +71,7 @@
 
 <thead>
 	<tr class='head row'>
-		<th class='hide'>user Email</th>
+		<th class='1hide'>user Email(will be hidden)</th>
 		<th class='hide'>user Id</th>
 		<th class='hide'>unique id</th>
 		<th class='dateResult'>Date</th>
@@ -105,7 +106,7 @@
 {{/if}}
 
 <div class='intro-msg'>
-Welcome to Fillups beta, please create a new account using the 'Sign in' button in the top right corner.<br><span> -Thanks, <br> Alex Bezuska, <br>Developer of Fillups</span></div>
+Welcome to Fillups beta, please create a new account using the 'Sign in' button in the top right corner.<br><span> -Thanks, <br> Alex Bezuska, <br>Fillups</span></div>
 
 </body>
 
@@ -114,7 +115,7 @@ Welcome to Fillups beta, please create a new account using the 'Sign in' button 
    {{#each FillupArr}}
 		<tr class='fillup row'>
 
-			<td class='hide'>{{userEmail}}</td>
+			<td class='1hide'>{{userEmail}}</td>
 			<td class='hide'>{{userId}}</td>
 			<td class='hide uniqueID'>{{_id}}</td>
 			<td class='dateResult'>{{fillups.Date}}</td>

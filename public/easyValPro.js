@@ -591,16 +591,12 @@ staticInputVal = stripMoney(staticInput);
           //if there was an 'output' label or txtBox specified
 return i;
 
-
-
-
-
-   };
-
+   };//end addobjects
 
 
         // set form dates to start at today
   setToToday = function(field, format){
+    console.log("gettingtodays date");
     if(format == "mm/dd/yyyy" || format == "MM/DD/YYYY"){
       var date = new Date();
       var today = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
@@ -618,6 +614,9 @@ return i;
         if(fieldtype == "INPUT"){ $(field).val(today);  }
                             else{ $(field).text(today); }
   };//end setToToday
+
+
+
 
  //##########################################################
 // End Globals
